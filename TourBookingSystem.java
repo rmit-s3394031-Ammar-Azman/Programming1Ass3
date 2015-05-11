@@ -351,10 +351,36 @@ public class TourBookingSystem
    private static void addGuidedTour()
    {
 
-      System.out.println("Add New Guided Tour Option Selected!");
-      
-      // remove the println() above (and this comment) and implement 
-      // your code for this feature here...
+	   String tourID, tourDescription, tourDate, tourLeader;
+       double tourFee;
+       int groupSize;
+       
+       System.out.println("Enter Tour ID: ");
+          tourID = sc.nextLine();
+          
+          System.out.println("Enter Tour description: ");
+          tourDescription = sc.nextLine();
+          
+          System.out.println("Enter Tour Date: ");
+          tourDate = sc.nextLine();
+          
+          System.out.println("Enter Tour fee: ");
+          tourFee = sc.nextDouble();
+          
+          System.out.println("Enter Group Size: ");
+          groupSize = sc.nextInt();
+          
+          System.out.println("Enter Tour Leader Name: ");
+          tourLeader = sc.nextLine();
+          
+          // consume trailing newline
+          sc.nextLine();
+          
+          // create new Tour object and store it in next empty spot in array
+          tours[tourCount] = new GuidedTour(tourID, tourDescription, tourDate, tourFee, groupSize, tourLeader);
+          
+          // increment tourCount as we now have one more tour in the array
+          tourCount++;
 
    }
    
