@@ -140,3 +140,37 @@ public class Tour
                                       this.calculateBookingFees(totalBookings));
    }
 }
+class GuidedTour extends Tour
+{
+	private String tourDate;
+	private int groupSize;
+	private String tourLeader;
+	
+	public GuidedTour(String tourID, String tourDescription, double tourFee, String tourDate, int groupSize, String tourLeader) {
+		super(tourID, tourDescription, tourFee);
+		this.tourDate = tourDate;
+	      this.groupSize = groupSize;
+	      this.tourLeader = tourLeader;
+		
+	}
+	public String tourDate()
+	{
+		return tourDate;
+	}
+	
+	public int groupSize()
+	{
+		return groupSize;
+	}
+	
+	public String tourLeader()
+	{
+		return tourLeader;
+	}
+	
+	public void updateGroupSize(int groupSize)
+	{
+		groupSize++;
+		return;
+	}
+}
