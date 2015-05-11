@@ -28,6 +28,8 @@ public class TourBookingSystem
 
    private static final Tour[] tours = new Tour[100];
    private static int tourCount = 0;
+   private static final EquipmentHire[] hires = new EquipmentHire[100];
+   private static int hireCount = 0;
 
    // Declaring a shared scanner just in case you choose to
    // implement some helper methods in your application class

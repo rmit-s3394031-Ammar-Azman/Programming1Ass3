@@ -5,7 +5,7 @@ class EquipmentHire {
 	private String equipDescription;
 	private double hireFee;
 	private int hireQty;
-	
+	private int totalHireFee;
 	// Step 2: Define a constructor that sets up a new Tour
 	public EquipmentHire(String hireID, String hireName, String equipDescription, Double hireFee,
 	                     int hireQty)
@@ -17,6 +17,10 @@ class EquipmentHire {
 		this.hireQty = hireQty;
 	 }
 	// Step 3 - Define accessors (getters) for each instance variable
+	public int totalHireFee()
+	{
+		return totalHireFee;
+	}
 	public String hireID()
 	{
 		return hireID;
@@ -42,19 +46,20 @@ class EquipmentHire {
 	}
 	public double getHireFee(int hireQty)
 	   {
-		
+		return hireQty * hireFee;
 	   }
 	public void printDetails()
 	{
 		System.out.printf("%s %s\n", "Hire ID:", hireID);
-	      System.out.printf("%s %s\n", "Description:", tourDescription);
-	      System.out.printf("%s $%.2f\n", "Tour Fee:", tourFee);
-	      System.out.printf("%s %s\n", "Total Bookings:", totalBookings);
+		System.out.printf("%s %s\n", "Hire ID:", hireName);
+	     System.out.printf("%s %s\n", "Description:", equipDescription);
+	     System.out.printf("%s $%.2f\n", "Hire Fee:", hireFee);
+	     System.out.printf("%s %s\n", "Hire Quantity:", hireQty);
 	      
 	      // call the calculateBookingFees() method to help figure out the
 	      // total fees 
-	      System.out.printf("%s $%.2f\n", "Total Booking Fees Received:",
-	                                      this.calculateBookingFees(totalBookings));
+	      System.out.printf("%s $%.2f\n", "Total Hire Fees Received:",
+	                                      this.getHireFee(totalHireFee));
 	}
 	
 }
