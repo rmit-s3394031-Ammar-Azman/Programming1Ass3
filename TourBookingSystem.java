@@ -375,11 +375,55 @@ public class TourBookingSystem
     */
    private static void addEquipmentHire()
    {
-      System.out.println("Add Equipement Hire Booking Option Selected!");
+	   Tour t;
+	   String hireID, tourID,hireName, equipDescription;
+	   double hireFee;
+	   int hireQty;
+	      
+	      // prompt user to enter details for new Tour
+	      System.out.print("Enter Hire ID: ");
+	      hireID = sc.nextLine();
+	      
+	      System.out.print("Enter Tour ID: ");
+	      tourID = sc.nextLine();
+	      
+	      System.out.print("Enter Hire Name: ");
+	      hireName = sc.nextLine();
+	      
+	      System.out.print("Enter Equipement description: ");
+	      equipDescription = sc.nextLine();
+	      
+	      System.out.print("Enter Hire Qty: ");
+	      hireQty = sc.nextInt();
+	      
+	      System.out.print("Enter Hire fee: ");
+	      hireFee = sc.nextDouble();
+	      
+	      // consume trailing newline
+	      sc.nextLine();
       
-      // remove the println() above (and this comment) and implement 
-      // your code for this feature here...
-      
+	   // use helper method to try to locate a matching Tour in the array
+	      t = findTour(tourID);
+	      
+	      // if the result returned by findTour() was null then the a matching
+	      // Tour was not found in the array
+	      if (t == null)
+	      {
+	         System.out.println("Error - tour ID \"" + tourID + "\" was not found!");
+	      }
+	      else
+	      {
+	    	// inform the user that a matching tour was found - not strictly required
+	          // but it improves the user-friendliness of the feature a little
+	          System.out.println("Tour found: " + 
+	                             t.getTourDescription() + " [" + t.getTourID() + "]");
+	       // create new Tour object and store it in next empty spot in array
+	          hires[hireCount] = new EquipmentHire(hireID, hireName, equipDescription, hireFee, hireQty);
+	          
+	          // increment tourCount as we now have one more tour in the array
+	          hireCount++;
+	          
+	      }
    }
 
    /*
@@ -387,10 +431,12 @@ public class TourBookingSystem
     */
    private static void displayEquipmentHireSummary()
    {
-      System.out.println("Display All Equipement Hire Bookings Option Selected!");
-      
-      // remove the println() above (and this comment) and implement 
-      // your code for this feature here...
+   // iterate through Tour objects currently stored in array
+      for (int i = 0; i < hireCount; i++)
+      {
+         hires[i].printDetailsE();
+         System.out.println();
+      }
       
    }
 }

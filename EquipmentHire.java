@@ -48,7 +48,7 @@ class EquipmentHire {
 	   {
 		return hireQty * hireFee;
 	   }
-	public void printDetails()
+	public void printDetailsE()
 	{
 		System.out.printf("%s %s\n", "Hire ID:", hireID);
 		System.out.printf("%s %s\n", "Hire ID:", hireName);
